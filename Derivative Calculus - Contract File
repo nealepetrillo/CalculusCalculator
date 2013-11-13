@@ -1,0 +1,60 @@
+;var ::= any scheme-recognized alphanumeric symbol
+
+;int ::= an integer literal
+
+;DerivExpr ::= (der <var> <AlgExpr>)
+;            | (der <int> <var> <AlgExpr>)
+
+;parseDerivExpr :: s-expression -> DerivExpr
+;parseDerivExpr takes an s-expression representing the concrete syntax of a derivative expression and parses it into the abstract DerivExpr type
+;Example: Input = (der x (+ x 1)) -> Output = (der x (binaryOp + #<procedure:+> (var x) (num 1)))
+
+;RealNum ::= a real number literal
+;          | e
+;          | pi
+
+;ArithOp ::= +
+;          | -
+;          | *
+;          | /
+
+;RealFun ::= cos
+;          | sin
+;          | tan
+;          | ln
+
+;AlgExpr ::= <RealNum>
+;          | <var>
+;          | (<ArithOp> <AlgExpr> <AlgExpr>)
+;          | (^ <AlgExpr> <RealNum>)
+;          | (<fun> <AlgExpr>)
+
+;parseAlgExpr :: s-expression -> AlgExpr
+;parseAlgExpr takes an s-expression representing the concrete syntax of an algebraic expression and parses it into the abstract AlgExpr type
+;Example: Input = (+ x 1) -> Output = (binaryOp + #<procedure:+> (var x) (num 1))
+
+;parse :: s-expression -> DerivExpr OR AlgExpr
+;parse takes an s-expression, determines if it's an algebraic expression or a derivative expression, and passes it to parseAlgExpr or parseDerivExpr accordingly
+
+;displayExpr :: DerivExpr OR AlgExpr -> string
+;displayExpr takes an abstract expression (either derivative or algebraic) and parses it into a human-readable string
+;Example: Input = (binaryOp + #<procedure:+> (var x) (num 1)) -> Output = "(x + 1)"
+
+;calcExpr :: DerivExpr OR AlgExpr -> AlgExpr
+;calcExpr takes an abstract expression and if it's a derivative expression passes it to calcDeriv, otherwise it returns the expression unchanged
+
+;calcDeriv :: DerivExpr -> AlgExpr
+;calcDeriv takes an abstract derivative expression and returns the calculated derivative (as an abstract algebraic expression)
+;Example: Input = (der x (binaryOp + #<procedure:+> (var x) (num 1))) -> Output = (num 1)
+
+;reduceExpr :: AlgExpr -> AlgExpr
+;reduceExpr takes an abstract algebraic expression and performs some simple reductions on it, returning a new (mathematically equivalent) algebraic expression
+;Example: Input = (binaryOp + #<procedure:+> (num 1) (num 2)) -> Output = (num 3)
+
+;interpret :: s-expression -> string
+;interpret takes an s-expression and parses it, calculates it, reduces it, and then displays it (using the corresponding procedures defined above)
+;Example: Input = (der x (+ x 1)) -> Output = "1"
+
+;negateExpr :: AlgExpr -> AlgExpr
+;negateExpr takes an algebraic expression p and returns an algebraic expression q that satifies (p = -1 * q) mathematically.
+;Example: Input = (var x) -> Ouput = (binaryOp * #<procedure:*> (num -1) (var x))
