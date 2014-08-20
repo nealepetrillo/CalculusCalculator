@@ -66,9 +66,9 @@ Real Functions: Any of the following functions as applied to the real numbers
 * ln
 
 Algebraic Expressions: Any of the following formats
-* <Real Number> 
-* <Variable>
-* (<Aritmatic Operator> <Algebraic Expression> <Algebraic Expression>)
-* (^ <Algebraic Expression> <Real Number>)
-* (<Real Function> <Algebraic Expression>)
+* \<Real Number\>
+* \<Variable\>
+* (\<Aritmatic Operator\> \<Algebraic Expression\> \<Algebraic Expression\>)
+* (^ \<Algebraic Expression\> \<Real Number\>)
+* (\<Real Function\> \<Algebraic Expression\>)
 
