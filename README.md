@@ -50,25 +50,25 @@ Variable: Any scheme-recognized alphanumeric symbol
 Integer: An integer literal
 
 Real Num: The following real number literals
-      * e
-      * pi
+* e
+* pi
 
 Arithmatic Operator: any of the following operators
-      * +
-      * -
-      * *
-      * /
+* +
+* -
+* *
+* /
 
 Real Functions: Any of the following functions as applied to the real numbers
-      * cos
-      * sin
-      * tan
-      * ln
+* cos 
+* sin
+* tan
+* ln
 
 Algebraic Expressions: Any of the following formats
-      * <Real Number>
-      * <Variable>
-      * (<Aritmatic Operator> <Algebraic Expression> <Algebraic Expression>)
-      * (^ <Algebraic Expression> <Real Number>)
-      * (<Real Function> <Algebraic Expression>)
+* <Real Number> 
+* <Variable>
+* (<Aritmatic Operator> <Algebraic Expression> <Algebraic Expression>)
+* (^ <Algebraic Expression> <Real Number>)
+* (<Real Function> <Algebraic Expression>)
 
